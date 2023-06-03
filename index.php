@@ -361,42 +361,39 @@
 <!--Empieza footer-->
     <footer>
       <section class="container" id="footer">
-        <div
-          class="row justify-content-center align-items-center d-flex flex-wrap"
-        >
-          <div class="col-12 col-lg" id="redes">
-            <div class="card text-center mb-3 cardfooter">
-              <div class="card-body2">
-                <img
-                  src="./img/fb_logo.png"
-                  class="iconosrrss"
-                  alt="facebook"
-                />
-                <img
-                  src="./img/ig_logo.png"
-                  class="iconosrrss"
-                  alt="instagram"
-                />
-                <img
-                  src="./img/wp_logo.png"
-                  class="iconosrrss"
-                  alt="Whatsapp"
-                />
-                <h5 class="card-title2">Navegación</h5>
-                <a href="./nosotros.html" class="card-link">Nosotros</a>
-                <a href="./productos.html" class="card-link">Productos</a>
-                <a href="./contacto.html" class="card-link">Contacto</a>
+        <div class="row justify-content-center align-items-center">
+          <div class="col-12 col-md-4 col-lg-3" id="redes">
+              <div class="card text-center mb-3 cardfooter">
+                <div class="card-body2">
+                  <img
+                    src="./img/fb_logo.png"
+                    class="iconosrrss"
+                    alt="facebook"
+                  />
+                  <img
+                    src="./img/ig_logo.png"
+                    class="iconosrrss"
+                    alt="instagram"
+                  />
+                  <img
+                    src="./img/wp_logo.png"
+                    class="iconosrrss"
+                    alt="Whatsapp"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-12 col-lg text-center" id="logoAbajo">
+        </div>
+        <div class="row justify-content-center align-items-center d-flex flex-wrap">
+
+          <div class="col-12 col-md-4 col-lg-3" id="logoAbajo">
             <img
               src="./img/logo_footer.png"
               class="logofooter"
               alt="logogarage"
             />
           </div>
-          <div class="col-12 col-lg justify-content-center text-center" id="suscribite">
+          <div class="col-12 col-md-4 col-lg-3" id="suscribite">
             <div class="cardfooter">
               <div class="card-body2" id="cardSuscribir">
                 <h5 class="card-title2">Suscríbete a nuestro boletín</h5>
