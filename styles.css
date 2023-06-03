@@ -4,11 +4,12 @@
 #logo {
   margin: 0;
   opacity: .9;
-  width: 80px;
+  width: 70px;
+  transition: .2s ease-in-out;
   /* transition: .2s ease-in; */
 }
 #logo:hover {
-  opacity: .7;
+  rotate: 90deg;
 }  
 
 
@@ -27,15 +28,27 @@
   top: 0;
   right: 0;
   left: 0;
-  height: 80px;
+  height: 64px;
   position: fixed;
   padding: 0;
-  background: white!important;
   box-shadow: 0 4px 10px rgba(74, 74, 74, 0.1);
+  background-color: white !important;
 }
+
+#nav-header .container {
+  height: 64px;
+}
+
+.sesionSvg {
+  opacity: .95;
+}
+
+.sesionSvg:hover{
+  opacity: .5;
+}
+
 #navbarSupportedContent {
   justify-content: flex-end;
-  background: white!important;
 }
 #containerPaginas {
   margin-right: 1.6rem !important;
@@ -49,26 +62,16 @@
 .nav-link {
   font-size: 1rem;
   font-weight: 500;
-  color: #1d1d1d;
-  transition: .1.5s;
+  color: #000000;
+  transition: .1s;
 }
 .nav-link:hover {
-  color: black;
-  text-decoration: underline;
-  text-underline-position: under;
-  text-decoration-color: rgb(41, 41, 41); 
-  text-decoration-thickness: 2.5px; 
-  padding-bottom: 0.2em; 
+  color: rgb(132, 132, 132);
 }
-#login-button{
-  font-size: 1rem;
-  padding: .9rem 1.6rem;
-  border-radius: 4px;
-  transition: .3s;
-}
-#login-button:hover{
-  color: black;
-  background-color: white;
+
+#login-button {
+  border: none;
+  background-color: white !important;
 }
 
 
@@ -413,11 +416,20 @@ footer {
   transform: scale(1.05);
 }
 
-#containerProductosSinSesion {
+.containerProductosSinSesion {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 
-  margin-top: 60rem;
 }
 
+.containerProductosSinSesion p {
+  font-size: 50px;
+  text-align: center;
+}
 
 
 
