@@ -1,0 +1,428 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- CSS Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+    <link rel="precoct" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">nne
+    
+    <link rel="shortcut icon" href="./img/logo.png" />
+    <!-- CSS Propio -->
+    <link rel="stylesheet" href="./style.css" />
+    <title>Garage Bauer Co | Inicio</title>
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav-header">
+        <div class="container">
+          <a class="navbar-brand" href="./index.php"
+            ><img src="./img/logo.png" alt="Logo Garage Bauer Co" id="logo"
+          /></a>
+
+          <!-- Menú Hamburguesa -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="containerPaginas">
+              <li class="nav-item">
+                <a class="nav-link" href="./nosotros.php">NOSOTROS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./productos.php">PRODUCTOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contacto.php">CONTACTO</a>
+              </li>
+
+              <?php if(isset($_SESSION['cliente'])) { ?> 
+              <li class="nav-item">
+                <a class="nav-link" href="./cerrar_sesion.php">Cerrar Sesión</a>
+              </li>
+              <?php } ?>
+
+
+
+            </ul>
+            <button
+              type="button"
+              class="btn btn-dark"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              data-bs-whatever="@getbootstrap"
+              id="login-button"
+            >
+              Iniciar Sesion
+            </button>
+            <?php
+              if(isset($_SESSION['cliente'])) { ?>
+              <p>Usuario: <?php echo $_SESSION['cliente'];?></p>
+              <?php } ?>
+
+            <!-- MODAL - INICIAR SESION -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      Iniciar Sesion
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- FORMULARIO -->
+                    <form action="validar_usuario.php" method="POST">
+                      <div class="mb-3">
+                        <input
+                          required=""
+                          name="username"
+                          id="username"
+                          type="text"
+                          placeholder="Usuario"
+                          maxlength="40"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <input
+                          required=""
+                          type="password"
+                          id="password"
+                          name="password"
+                          placeholder="Contraseña"
+                          maxlength="60"
+                        />
+                      </div>
+                      <input type="submit" value="Ingresar" class="btn btn-dark"></input>
+                    </form>
+                        <?php
+                          if(isset($_GET['error_ingreso'])) {
+                        ?>
+                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <p>El Usuario no está registrado</p> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+
+                        <?php
+                        }
+                        ?>
+                        <?php
+                          if(isset($_GET['error_validar'])) {
+                        ?>
+                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <p>Contraseña Incorrecta</p> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+
+                        <?php
+                        }
+                        ?>
+                    <!-- TERMINA FORMULARIO -->
+                  </div>
+                  <div class="modal-footer">
+                    <p>No tenes Usuario? Registrate</p>
+                    <button
+                      type="button"
+                      class="btn btn-dark"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalRegistro"
+                      data-bs-whatever="@getbootstrap"
+                    >
+                      Registrarse
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- MODAL - REGISTRARSE -->
+            <div
+              class="modal fade"
+              id="modalRegistro"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog  modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      Registrate!
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- FORMULARIO -->
+                    <form action="enviar_registro.php" method="POST">
+                      <div class="mb-3">
+                        <input
+                          required
+                          name="username"
+                          id="username"
+                          type="text"
+                          placeholder="Usuario"
+                          maxlength="40"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <input
+                          required
+                          name="nombre"
+                          id="nombre"
+                          type="text"
+                          placeholder="Nombre"
+                          maxlength="40"
+                        />
+                        <input
+                          required
+                          name="apellido"
+                          id="apellido"
+                          type="text"
+                          placeholder="Apellido"
+                          maxlength="60"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <input
+                          required
+                          type="email"
+                          id="password"
+                          name="correo"
+                          placeholder="Correo Electronónico"
+                          maxlength="100"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <input
+                          required
+                          type="password"
+                          id="password"
+                          name="password"
+                          placeholder="Contraseña"
+                          maxlength="60"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <input
+                          required
+                          type="password"
+                          id="password"
+                          name="password2"
+                          placeholder="Repetir Contraseña"
+                          maxlength="60"
+                        />
+                      </div>
+                      <input type="submit" value="Registrarme" class="btn btn-dark">
+                      </input>
+
+                        <?php
+                          if(isset($_GET['ok'])) { 
+                        ?>
+
+                          <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p>Usuario Registrado</p> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+
+                        <?php  
+                        } 
+                        ?>
+
+                        <?php
+                          if(isset($_GET['error'])) {
+                        ?>
+                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <p>Contraseñas no coinciden</p> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+
+                        <?php
+                        }
+                        ?>
+
+
+
+                    </form>
+                    <!-- TERMINA FORMULARIO -->
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-dark"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                      data-bs-whatever="@getbootstrap"
+                    >
+                      Volver Atras
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <div id="imagenPrincipal">
+      <div class="container" id="textoHero">
+        <h1>Garage Bauer Co.</h1>
+        <h3></h3>
+        <a href="./productos.html"><button id="botonProductos" class="btn btn-dark"> conocé nuestros productos</button></a>
+      </div>
+    </div>
+
+    <section class="container-fluid row" id="info-pagina">
+      </div>
+      <!-- Envios Gratis -->
+      <div class="col-12 col-md-4 col-lg-3">
+        <svg
+          class="svg-info"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 88 69.96"
+        >
+          <path
+            d="M87.93,34.84a.5.5,0,0,0-.08-.12.59.59,0,0,0-.1-.17l-16-18.23A1,1,0,0,0,71,16H60.53V6.65A6.63,6.63,0,0,0,53.9,0H6.63A6.63,6.63,0,0,0,0,6.65V49.19a6.64,6.64,0,0,0,6.63,6.64h3.64a10.7,10.7,0,1,0,20.24,0H63a10.7,10.7,0,1,0,20.24,0H87a1,1,0,0,0,1-1V35.21A1.16,1.16,0,0,0,87.93,34.84ZM70.58,18,84.8,34.21H60.53V18ZM20.39,68a8.71,8.71,0,1,1,8.7-8.71A8.72,8.72,0,0,1,20.39,68Zm0-19.41a10.7,10.7,0,0,0-9.2,5.25H6.63A4.63,4.63,0,0,1,2,49.19V6.65A4.63,4.63,0,0,1,6.63,2H53.9a4.64,4.64,0,0,1,4.64,4.64V53.83h-29A10.69,10.69,0,0,0,20.39,48.58ZM73.07,68a8.71,8.71,0,1,1,8.7-8.71A8.72,8.72,0,0,1,73.07,68Zm9.19-14.16a10.67,10.67,0,0,0-18.38,0H60.53V36.21H86V53.83Z"
+          ></path>
+        </svg>
+        <p class="title">Envíos Gratis</p>
+        <p class="subtitle">Envíos a todo CABA</p>
+      </div>
+
+      <!-- Aceptamos todas las tarjetas -->
+      <div class="col-12 col-md-4 col-lg-3">
+        <svg
+          class="svg-info"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 89.72 69.42"
+        >
+          <path
+            d="M83.21.29H6.79A6.65,6.65,0,0,0,.14,6.93V63.07a6.65,6.65,0,0,0,6.65,6.64H83.21a6.65,6.65,0,0,0,6.65-6.64V6.93A6.65,6.65,0,0,0,83.21.29Zm-81.07,15H87.86V28.76H2.14Zm4.65-13H83.21a4.65,4.65,0,0,1,4.65,4.64v6.4H2.14V6.93A4.65,4.65,0,0,1,6.79,2.29ZM83.21,67.71H6.79a4.65,4.65,0,0,1-4.65-4.64V30.76H87.86V63.07A4.65,4.65,0,0,1,83.21,67.71ZM29.68,51.9H14.25a1,1,0,0,0,0,2H29.68a1,1,0,0,0,0-2Zm30.86,0H34.82a1,1,0,0,0,0,2H60.54a1,1,0,0,0,0-2Z"
+          ></path>
+        </svg>
+        <p class="title">Aceptamos todas las tarjetas</p>
+        <p class="subtitle">Trabajamos con todos los bancos</p>
+      </div>
+
+      <!-- Sitio Seguro -->
+      <div class="col-12 col-md-4 col-lg-3">
+        <svg
+          class="svg-info-3"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 79.82 86"
+        >
+          <path
+            d="M40,86a1,1,0,0,1-.34-.06C8,74.58-1.59,35.33.32,16.84A1,1,0,0,1,.94,16L39.62.07a1.1,1.1,0,0,1,.76,0L79.06,16a1,1,0,0,1,.62.83C81.59,35.33,72,74.58,40.34,85.94A1,1,0,0,1,40,86ZM2.26,17.63C.67,35.75,10,72.92,40,83.94c30-11,39.33-48.19,37.74-66.31L40,2.08ZM33.1,58.69a1,1,0,0,1-.71-.29L16.78,42.85a1,1,0,1,1,1.41-1.42L33.1,56.28,64.19,25.44a1,1,0,0,1,1.41,1.42L33.8,58.4A1,1,0,0,1,33.1,58.69Z"
+          ></path>
+        </svg>
+        <p class="title">Sitio Seguro</p>
+        <p class="subtitle">Protegemos tus datos</p>
+      </div>
+    </section>
+<!--Empieza footer-->
+    <footer>
+      <section class="container" id="footer">
+        <div
+          class="row justify-content-center align-items-center d-flex flex-wrap"
+        >
+          <div class="col-12 col-lg" id="redes">
+            <div class="card text-center mb-3 cardfooter">
+              <div class="card-body2">
+                <img
+                  src="./img/fb_logo.png"
+                  class="iconosrrss"
+                  alt="facebook"
+                />
+                <img
+                  src="./img/ig_logo.png"
+                  class="iconosrrss"
+                  alt="instagram"
+                />
+                <img
+                  src="./img/wp_logo.png"
+                  class="iconosrrss"
+                  alt="Whatsapp"
+                />
+                <h5 class="card-title2">Navegación</h5>
+                <a href="./nosotros.html" class="card-link">Nosotros</a>
+                <a href="./productos.html" class="card-link">Productos</a>
+                <a href="./contacto.html" class="card-link">Contacto</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg text-center" id="logoAbajo">
+            <img
+              src="./img/logo_footer.png"
+              class="logofooter"
+              alt="logogarage"
+            />
+          </div>
+          <div class="col-12 col-lg justify-content-center text-center" id="suscribite">
+            <div class="cardfooter">
+              <div class="card-body2" id="cardSuscribir">
+                <h5 class="card-title2">Suscríbete a nuestro boletín</h5>
+                <p class="card-text2">
+                  Recibí nuestras últimas ofertas especiales en tu correo
+                  electrónico.
+                </p>
+                <form action="#" method="POST">
+                  <input class="mail"
+                    type="email"
+                    name="email"
+                    placeholder="Ingresa tu correo electrónico"
+                    required
+                  />
+                  <button type="submit" class="btn btn-primary">
+                    Suscribirse
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+<!--Termina footer-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
