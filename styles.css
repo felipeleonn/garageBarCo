@@ -446,8 +446,9 @@ footer {
 
 /* SECCIÓN CONTACTO ----------------------- */
 #seccion-contacto {
-  margin-top: 10rem;
-  margin-bottom: 10rem;
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
 #formulario {
