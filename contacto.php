@@ -24,7 +24,6 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
-    nne
     <!-- CSS Propio -->
     <link rel="stylesheet" href="./styles.css" />
 

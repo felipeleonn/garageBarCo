@@ -23,8 +23,6 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
-    nne
-
     <link rel="shortcut icon" href="/img/logo.png" />
     <!-- CSS Propio -->
     <link rel="stylesheet" href="./styles.css" />
