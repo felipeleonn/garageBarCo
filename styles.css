@@ -3,13 +3,13 @@
 }
 #logo {
   margin: 0;
-  opacity: .9;
+  opacity: .94;
   width: 70px;
-  transition: .2s ease-in-out;
+  transition: .1s ease-in-out;
   /* transition: .2s ease-in; */
 }
 #logo:hover {
-  rotate: 90deg;
+  opacity: .5;
 }  
 
 
@@ -92,8 +92,14 @@
   padding: 1rem;
 }
 
+.nombreUsuario {
+  margin-bottom: 0 !important;
+  margin-right: 1rem;
+}
 
-
+#cerrarSesion {
+  text-decoration: underline;
+}
 
 
 
@@ -314,7 +320,7 @@ footer {
   left: 0;
   right: 0;
   width: 100%;
-  margin-top: 80px;
+  margin-top: 64px;
 
   margin-bottom: 10rem;
 }
@@ -464,6 +470,16 @@ footer {
   height: 600px;
 }
 
+#form-button {
+  background-color: black;
+  padding: 1rem 1.8rem;
+  border-radius: 3px;
+}
+#form-button:hover {
+  background-color: white;
+  color: black;
+  overflow: hidden;
+}
 
 
 

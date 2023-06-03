@@ -25,7 +25,7 @@
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav-header">
         <div class="container">
-          <a class="navbar-brand" href="./index.php"
+          <a href="./index.php"
             ><img src="./img/logo.png" alt="Logo Garage Bauer Co" id="logo"
           /></a>
 
@@ -54,11 +54,7 @@
                 <a class="nav-link" href="./contacto.php">CONTACTO</a>
               </li>
 
-              <?php if(isset($_SESSION['cliente'])) { ?> 
-              <li class="nav-item">
-                <a class="nav-link" href="./cerrar_sesion.php">Cerrar Sesión</a>
-              </li>
-              <?php } ?>
+
 
 
 
@@ -78,7 +74,12 @@
             </button>
             <?php
               if(isset($_SESSION['cliente'])) { ?>
-              <p>Usuario: <?php echo $_SESSION['cliente'];?></p>
+              <p class="nombreUsuario"><?php echo $_SESSION['cliente'];?> </p>
+              
+              <?php } ?>
+              
+              <?php if(isset($_SESSION['cliente'])) { ?> 
+                <a id="cerrarSesion" class="nav-link" href="./cerrar_sesion.php">Cerrar Sesión</a>
               <?php } ?>
 
             <!-- MODAL - INICIAR SESION -->
@@ -307,7 +308,7 @@
       <div class="container" id="textoHero">
         <h1>Garage Bauer Co.</h1>
         <h3></h3>
-        <a href="./productos.html"><button id="botonProductos" class="btn btn-dark"> conocé nuestros productos</button></a>
+        <a href="./productos.php"><button id="botonProductos" class="btn btn-dark"> conocé nuestros productos</button></a>
       </div>
     </div>
 

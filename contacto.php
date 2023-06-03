@@ -35,7 +35,7 @@
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav-header">
         <div class="container">
-          <a class="navbar-brand" href="./index.php"
+          <a href="./index.php"
             ><img src="./img/logo.png" alt="Logo Garage Bauer Co" id="logo"
           /></a>
 
@@ -63,14 +63,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="./contacto.php">CONTACTO</a>
               </li>
-              <?php if(isset($_SESSION['cliente'])) { ?> 
-              <li class="nav-item">
-                <a class="nav-link" href="./cerrar_sesion.php">Cerrar Sesión</a>
-              </li>
-              <?php } ?>
-              
-        
-
             </ul>
             <button
               type="button"
@@ -87,7 +79,12 @@
             </button>
             <?php
               if(isset($_SESSION['cliente'])) { ?>
-              <p>Usuario: <?php echo $_SESSION['cliente'];?></p>
+              <p class="nombreUsuario"><?php echo $_SESSION['cliente'];?> </p>
+              
+              <?php } ?>
+              
+              <?php if(isset($_SESSION['cliente'])) { ?> 
+                <a id="cerrarSesion" class="nav-link" href="./cerrar_sesion.php">Cerrar Sesión</a>
               <?php } ?>
 
             <!-- MODAL - INICIAR SESION -->
@@ -294,7 +291,7 @@
           </div>
           <div class="mb-3" id="mensajeDiv">
             <label for="exampleFormControlInput1" class="form-label"
-              >Dejanos tu mensaje!</label
+              >¡Dejanos tu mensaje!</label
             >
             <textarea
               class="form-control"
@@ -303,7 +300,7 @@
             ></textarea>
           </div>
 
-          <input type="submit" value="Enviar" class="btn btn-dark" id="login-button"/>
+          <input type="submit" value="Enviar" class="btn btn-dark" id="form-button"/>
           
 
 
