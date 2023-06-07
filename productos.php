@@ -238,6 +238,7 @@
         </div>
       </nav>
     </header>
+    
 
     <?php
       if(isset($_SESSION['cliente'])) {

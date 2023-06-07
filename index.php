@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -127,28 +127,7 @@
                       </div>
                       <input type="submit" value="Ingresar" class="btn btn-dark"></input>
                     </form>
-                        <?php
-                          if(isset($_GET['error_ingreso'])) {
-                        ?>
-                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <p>El Usuario no está registrado</p> 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                          </div>
 
-                        <?php
-                        }
-                        ?>
-                        <?php
-                          if(isset($_GET['error_validar'])) {
-                        ?>
-                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <p>Contraseña Incorrecta</p> 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                          </div>
-
-                        <?php
-                        }
-                        ?>
                     <!-- TERMINA FORMULARIO -->
                   </div>
                   <div class="modal-footer">
@@ -254,30 +233,7 @@
                       <input type="submit" value="Registrarme" class="btn btn-dark">
                       </input>
 
-                        <?php
-                          if(isset($_GET['ok'])) { 
-                        ?>
 
-                          <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <p>Usuario Registrado</p> 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                          </div>
-
-                        <?php  
-                        } 
-                        ?>
-
-                        <?php
-                          if(isset($_GET['error'])) {
-                        ?>
-                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <p>Contraseñas no coinciden</p> 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                          </div>
-
-                        <?php
-                        }
-                        ?>
 
 
 
@@ -302,6 +258,53 @@
         </div>
       </nav>
     </header>
+                        <?php
+                          if(isset($_GET['error_ingreso'])) {
+                        ?>
+                          <div id="alertHeader" class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <p>El Usuario no está registrado</p> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+
+                        <?php
+                        }
+                        ?>
+                        <?php
+                          if(isset($_GET['error_validar'])) {
+                        ?>
+                          <div id="alertHeader" class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <p>Contraseña Incorrecta, intentá de nuevo</p> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+
+                        <?php
+                        }
+                        ?>
+
+                        <?php
+                          if(isset($_GET['ok'])) { 
+                        ?>
+
+                          <div id="alertHeader" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p>Usuario Registrado</p> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+
+                        <?php  
+                        } 
+                        ?>
+
+                        <?php
+                          if(isset($_GET['error'])) {
+                        ?>
+                          <div id="alertHeader" class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <p>Las contraseñas deben coincidir</p> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+
+                        <?php
+                        }
+                        ?>
     
     <div id="imagenPrincipal">
       <div class="container" id="textoHero">
@@ -359,65 +362,68 @@
       </div>
     </section>
 <!--Empieza footer-->
-    <footer>
-      <section class="container" id="footer">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-12 col-md-4 col-lg-3" id="redes">
-              <div class="card text-center mb-3 cardfooter">
-                <div class="card-body2">
-                  <img
-                    src="./img/fb_logo.png"
-                    class="iconosrrss"
-                    alt="facebook"
-                  />
-                  <img
-                    src="./img/ig_logo.png"
-                    class="iconosrrss"
-                    alt="instagram"
-                  />
-                  <img
-                    src="./img/wp_logo.png"
-                    class="iconosrrss"
-                    alt="Whatsapp"
-                  />
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="row justify-content-center align-items-center d-flex flex-wrap">
-
-          <div class="col-12 col-md-4 col-lg-3" id="logoAbajo">
+<footer>
+  <section class="container" id="footer">
+    <div
+      class="row justify-content-center align-items-center d-flex flex-wrap"
+    >
+      <div class="col-12 col-lg" id="redes">
+        <div class="card text-center mb-3 cardfooter">
+          <div class="card-body2">
             <img
-              src="./img/logo_footer.png"
-              class="logofooter"
-              alt="logogarage"
+              src="./img/fb_logo.png"
+              class="iconosrrss"
+              alt="facebook"
             />
-          </div>
-          <div class="col-12 col-md-4 col-lg-3" id="suscribite">
-            <div class="cardfooter">
-              <div class="card-body2" id="cardSuscribir">
-                <h5 class="card-title2">Suscríbete a nuestro boletín</h5>
-                <p class="card-text2">
-                  Recibí nuestras últimas ofertas especiales en tu correo
-                  electrónico.
-                </p>
-                <form action="#" method="POST">
-                  <input class="mail"
-                    type="email"
-                    name="email"
-                    placeholder="Ingresa tu correo electrónico"
-                    required
-                  />
-                  <button type="submit" class="btn btn-primary">
-                    Suscribirse
-                  </button>
-                </form>
-              </div>
-            </div>
+            <img
+              src="./img/ig_logo.png"
+              class="iconosrrss"
+              alt="instagram"
+            />
+            <img
+              src="./img/wp_logo.png"
+              class="iconosrrss"
+              alt="Whatsapp"
+            />
+            <h5 class="card-title2">Navegación</h5>
+            <a href="./nosotros.html" class="card-link">Nosotros</a>
+            <a href="./productos.html" class="card-link">Productos</a>
+            <a href="./contacto.html" class="card-link">Contacto</a>
           </div>
         </div>
-      </section>
-    </footer>
+      </div>
+      <div class="col-12 col-lg text-center" id="logoAbajo">
+        <img
+          src="./img/logo_footer.png"
+          class="logofooter"
+          alt="logogarage"
+        />
+      </div>
+      <div class="col-12 col-lg justify-content-center text-center" id="suscribite">
+        <div class="cardfooter">
+          <div class="card-body2" id="cardSuscribir">
+            <h5 class="card-title2">Suscríbete a nuestro boletín</h5>
+            <p class="card-text2">
+              Recibí nuestras últimas ofertas especiales en tu correo
+              electrónico.
+            </p>
+            <form action="#" method="POST">
+              <input class="mail"
+                type="email"
+                name="email"
+                placeholder="Ingresa tu correo electrónico"
+                required
+              />
+              <button type="submit" class="btn btn-primary">
+                Suscribirse
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
 <!--Termina footer-->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
