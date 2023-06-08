@@ -4,7 +4,7 @@
 #logo {
   margin: 0;
   opacity: .94;
-  width: 70px;
+  width: 55px;
   transition: .1s ease-in-out;
   /* transition: .2s ease-in; */
 }
@@ -117,7 +117,7 @@
 #imagenPrincipal {
   z-index: -1;
   height: 100vh; 
-  background-image: url('./img/hero-img.jpg');
+  background-image: url('../img/hero-img.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -221,7 +221,7 @@
 }
 .subtitle {
   font-weight: 300;
-  color: rgb(0, 0, 0);
+  color: rgb(171, 171, 171);
 }
 
 
@@ -232,17 +232,16 @@
 /* Footer */
 
 footer {
-  border-top: 1px solid rgb(214, 214, 214);
+  background-color: rgb(251, 251, 251);
 }
 
-#footer {
-  background-color: rgb(255, 255, 255);
+#contenedorFooter {
+  background-color: rgb(251, 251, 251);
 }
 
-#redes, #logoAbajo, #suscribite {
-  height: 300px;
+.inputFooter {
+  margin-left: .5rem;
 }
-
 
 #redes {
   margin-top: 30px;
@@ -264,33 +263,46 @@ footer {
   color: black;
 }
 
+.card-title2 {
+  color: black;
+}
+
 .card-link {
   text-decoration-color:transparent;
+  color: black;
+  transition: .2s;
+}
+.card-link:hover {
+  opacity: .7;
 }
 
 .iconosrrss {
-  max-width: 15%;
-  height: 15%;
-  object-fit: contain;
+  width: 35px;
   margin-bottom:  15px;
+  transition: .2s;
 }
 
+.iconosrrss:hover {
+  opacity: .7;
+}
 
 .mail{
+  padding: .28rem .8rem;
   width: 242px;
 }
 
 .logofooter {
   margin-top: 15px;
-  height: 55%;
-}
 
-.btn {
-  background-color: black;
-  border-color: black;
+  height: 200px;
 }
 
 
+.formFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 
@@ -318,7 +330,7 @@ footer {
   align-items: center;
   height: 20rem;
   z-index: -1; 
-  background: url('./img/foodtruck.jpg');
+  background: url('../img/foodtruck.jpg');
   top: 0;
   left: 0;
   right: 0;
@@ -328,10 +340,10 @@ footer {
   margin-bottom: 10rem;
 }
 .comidas {
-  background: url('./img/morfi1.jpg') !important;
+  background: url('../img/morfi1.jpg') !important;
 }
 .extras {
-  background: url('./img/latas2.jpg') !important;
+  background: url('../img/latas2.jpg') !important;
 }
 #tituloProductos {
   color: rgb(88, 88, 88);
@@ -371,9 +383,6 @@ footer {
   color: rgb(232, 232, 232);
 }
 
-.card-title2 {
-  color: black;
-}
 
 .card-title3 {
   margin-left: 20px;
@@ -479,6 +488,10 @@ footer {
   padding: 1rem 1.8rem;
   border-radius: 3px;
 }
+.inputFooter {
+  padding: .35rem .9rem !important;
+}
+
 #form-button:hover {
   background-color: white;
   color: black;
@@ -502,7 +515,7 @@ footer {
 #seccionNosotros {
   margin-top: 60px;
   padding: 2rem;
-  background-color: rgb(37, 37, 37);
+  /* background-color: rgb(37, 37, 37); */
 }
 
 .Presentacion {

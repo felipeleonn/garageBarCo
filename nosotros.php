@@ -25,11 +25,11 @@
     />
     <link rel="shortcut icon" href="/img/logo.png" />
     <!-- CSS Propio -->
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>Garage Bauer Co | Nosotros</title>
   </head>
   <body>
-    <header>
+    <header id="header">
       <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav-header">
         <div class="container">
           <a href="./index.php"
@@ -249,9 +249,6 @@
     </header>
 
     <section class="container" id="seccionNosotros">
-      <div class="row justify-content-center text-center" id="titulo">
-        <h1 class="titulin">Nosotros</h1>
-      </div>
       <div class="row justify-content-center">
         <!--Empieza el card N1-->
 
@@ -363,9 +360,7 @@
     
 <footer>
   <section class="container" id="footer">
-    <div
-      class="row justify-content-center align-items-center d-flex flex-wrap"
-    >
+    <div class="row justify-content-center align-items-center d-flex flex-wrap" id="contenedorFooter">
       <div class="col-12 col-lg" id="redes">
         <div class="card text-center mb-3 cardfooter">
           <div class="card-body2">
@@ -385,18 +380,20 @@
               alt="Whatsapp"
             />
             <h5 class="card-title2">Navegación</h5>
-            <a href="./nosotros.html" class="card-link">Nosotros</a>
-            <a href="./productos.html" class="card-link">Productos</a>
-            <a href="./contacto.html" class="card-link">Contacto</a>
+            <a href="./nosotros.php" class="card-link">Nosotros</a>
+            <a href="./productos.php" class="card-link">Productos</a>
+            <a href="./contacto.php" class="card-link">Contacto</a>
           </div>
         </div>
       </div>
       <div class="col-12 col-lg text-center" id="logoAbajo">
+        <a href="#header">
         <img
           src="./img/logo_footer.png"
           class="logofooter"
           alt="logogarage"
         />
+        </a>
       </div>
       <div class="col-12 col-lg justify-content-center text-center" id="suscribite">
         <div class="cardfooter">
@@ -406,16 +403,14 @@
               Recibí nuestras últimas ofertas especiales en tu correo
               electrónico.
             </p>
-            <form action="#" method="POST">
+            <form class="formFooter" action="enviar_consulta.php" method="POST">
               <input class="mail"
                 type="email"
-                name="email"
-                placeholder="Ingresa tu correo electrónico"
+                name="correo"
+                placeholder="Ingresá tu correo electrónico"
                 required
               />
-              <button type="submit" class="btn btn-primary">
-                Suscribirse
-              </button>
+             <input type="submit" value="Enviar" class="inputFooter btn btn-dark" id="form-button"/>
             </form>
           </div>
         </div>
